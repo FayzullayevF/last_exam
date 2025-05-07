@@ -1,30 +1,35 @@
+
 import 'package:exam/data/models/nearest_popular_place_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'home_model.g.dart';
+
 @JsonSerializable()
+
 class HomeModel {
   final int id;
-  final int price;
-  final int numOfRooms;
-  final int totalFloor;
-  final int floor;
-  final NearestPopularPlaceModel model;
   final String category;
   final String image;
+  final int price;
   final String currency;
-  final num area;
+  final double area;
+  final int numOfRooms;
+  final int totalFloors;
+  final int floor;
+  final NearestPopularPlaceModel nearestPopularPlace;
 
   HomeModel({
-    required this.image,
-    required this.price,
-    required this.model,
     required this.id,
     required this.category,
-    required this.area,
+    required this.image,
+    required this.price,
     required this.currency,
-    required this.floor,
+    required this.area,
     required this.numOfRooms,
-    required this.totalFloor,
+    required this.totalFloors,
+    required this.floor,
+    required this.nearestPopularPlace
   });
-  factory HomeModel.fromJson(Map<String, dynamic> json)=> _$HomeModelFromJson(json);
+
+  factory HomeModel.fromJson(Map<String, dynamic> json) => _$HomeModelFromJson(json);
+  Map<String, dynamic>toJson() => _$HomeModelToJson(this);
 }

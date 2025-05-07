@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeState {
 
- HomeStatus? get status; HomeModel? get model;
+ HomeStatus? get status; List<HomeModel?> get model;
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,12 +26,12 @@ $HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.status, status) || other.status == status)&&(identical(other.model, model) || other.model == model));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.model, model));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,model);
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(model));
 
 @override
 String toString() {
@@ -46,7 +46,7 @@ abstract mixin class $HomeStateCopyWith<$Res>  {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) _then) = _$HomeStateCopyWithImpl;
 @useResult
 $Res call({
- HomeStatus? status, HomeModel? model
+ HomeStatus? status, List<HomeModel?> model
 });
 
 
@@ -63,11 +63,11 @@ class _$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? status = freezed,Object? model = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? status = freezed,Object? model = null,}) {
   return _then(_self.copyWith(
 status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as HomeStatus?,model: freezed == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
-as HomeModel?,
+as HomeStatus?,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
+as List<HomeModel?>,
   ));
 }
 
@@ -78,11 +78,17 @@ as HomeModel?,
 
 
 class _HomeState implements HomeState {
-  const _HomeState({required this.status, required this.model});
+  const _HomeState({required this.status, required final  List<HomeModel?> model}): _model = model;
   
 
 @override final  HomeStatus? status;
-@override final  HomeModel? model;
+ final  List<HomeModel?> _model;
+@override List<HomeModel?> get model {
+  if (_model is EqualUnmodifiableListView) return _model;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_model);
+}
+
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
@@ -94,12 +100,12 @@ _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.status, status) || other.status == status)&&(identical(other.model, model) || other.model == model));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._model, _model));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,model);
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_model));
 
 @override
 String toString() {
@@ -114,7 +120,7 @@ abstract mixin class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Re
   factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) _then) = __$HomeStateCopyWithImpl;
 @override @useResult
 $Res call({
- HomeStatus? status, HomeModel? model
+ HomeStatus? status, List<HomeModel?> model
 });
 
 
@@ -131,11 +137,11 @@ class __$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? status = freezed,Object? model = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? status = freezed,Object? model = null,}) {
   return _then(_HomeState(
 status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as HomeStatus?,model: freezed == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
-as HomeModel?,
+as HomeStatus?,model: null == model ? _self._model : model // ignore: cast_nullable_to_non_nullable
+as List<HomeModel?>,
   ));
 }
 

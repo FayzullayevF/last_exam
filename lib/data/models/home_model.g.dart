@@ -7,29 +7,29 @@ part of 'home_model.dart';
 // **************************************************************************
 
 HomeModel _$HomeModelFromJson(Map<String, dynamic> json) => HomeModel(
-  image: json['image'] as String,
-  price: (json['price'] as num).toInt(),
-  model: NearestPopularPlaceModel.fromJson(
-    json['model'] as Map<String, dynamic>,
-  ),
   id: (json['id'] as num).toInt(),
   category: json['category'] as String,
-  area: json['area'] as num,
+  image: json['image'] as String,
+  price: (json['price'] as num).toInt(),
   currency: json['currency'] as String,
-  floor: (json['floor'] as num).toInt(),
+  area: (json['area'] as num).toDouble(),
   numOfRooms: (json['numOfRooms'] as num).toInt(),
-  totalFloor: (json['totalFloor'] as num).toInt(),
+  totalFloors: (json['totalFloors'] as num).toInt(),
+  floor: (json['floor'] as num).toInt(),
+  nearestPopularPlace: NearestPopularPlaceModel.fromJson(
+    json['nearestPopularPlace'] as Map<String, dynamic>,
+  ),
 );
 
 Map<String, dynamic> _$HomeModelToJson(HomeModel instance) => <String, dynamic>{
   'id': instance.id,
-  'price': instance.price,
-  'numOfRooms': instance.numOfRooms,
-  'totalFloor': instance.totalFloor,
-  'floor': instance.floor,
-  'model': instance.model,
   'category': instance.category,
   'image': instance.image,
+  'price': instance.price,
   'currency': instance.currency,
   'area': instance.area,
+  'numOfRooms': instance.numOfRooms,
+  'totalFloors': instance.totalFloors,
+  'floor': instance.floor,
+  'nearestPopularPlace': instance.nearestPopularPlace,
 };

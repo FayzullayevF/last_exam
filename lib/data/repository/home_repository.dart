@@ -3,11 +3,11 @@ import 'package:exam/data/models/home_model.dart';
 
 class HomeRepository{
   final ApiClient client;
-   HomeModel? model;
+   List<HomeModel>? model;
   HomeRepository({required this.client});
-  Future<HomeModel> fetchItems() async{
+  Future<List<HomeModel>> fetchItems() async{
     var rawItem = await client.fetchItems();
-    model = HomeModel.fromJson(rawItem);
+    model = rawItem.map((e)=> HomeModel.fromJson(e)).toList();
     return model!;
   }
 }

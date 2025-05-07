@@ -9,8 +9,8 @@ part of 'nearest_popular_place_model.dart';
 NearestPopularPlaceModel _$NearestPopularPlaceModelFromJson(
   Map<String, dynamic> json,
 ) => NearestPopularPlaceModel(
-  image: json['image'] as String,
   title: json['title'] as String,
+  image: json['image'] as String,
   distance: (json['distance'] as num).toInt(),
 );
 

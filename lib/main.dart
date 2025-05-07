@@ -1,7 +1,5 @@
-import 'package:exam/core/client.dart';
 import 'package:exam/core/dependences.dart';
-import 'package:exam/data/repository/home_repository.dart';
-import 'package:exam/feature/main_page/pages/home_view.dart';
+import 'package:exam/core/routing/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,9 +17,9 @@ class MyApp extends StatelessWidget {
     ScreenUtil.init(context, designSize: Size(390, 844));
     return MultiBlocProvider(
       providers: providers,
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        home: HomeView(repo: HomeRepository(client: ApiClient())),
+        routerConfig: router
       ),
     );
   }
