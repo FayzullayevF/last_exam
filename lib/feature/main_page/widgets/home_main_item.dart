@@ -115,7 +115,7 @@ class HomeMainItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SvgPicture.asset(svg),
+                    SvgPicture.network(svg),
                     Text(
                       title,
                       style: TextStyle(
